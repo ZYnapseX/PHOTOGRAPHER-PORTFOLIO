@@ -1,0 +1,143 @@
+.page {
+    padding-top: var(--header-height);
+}
+
+.hero {
+    padding: var(--space-5xl) 0;
+    background: var(--color-bg-alt);
+}
+
+.heroGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+}
+
+.imageWrap {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.eyebrow {
+    font-family: var(--font-accent);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent-warm);
+    margin-bottom: var(--space-lg);
+}
+
+.title {
+    font-size: var(--text-5xl);
+    margin-bottom: var(--space-xl);
+}
+
+.intro {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    line-height: 1.8;
+}
+
+.stats {
+    padding: var(--space-4xl) 0;
+    background: var(--color-bg-dark);
+    color: var(--color-text-light);
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+    text-align: center;
+}
+
+.statNumber {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    color: var(--color-accent-warm);
+    margin-bottom: var(--space-sm);
+}
+
+.statLabel {
+    font-size: var(--text-sm);
+    opacity: 0.8;
+}
+
+.story {
+    padding: var(--section-padding) 0;
+}
+
+.storyContent {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.storyTitle {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-xl);
+}
+
+.storyText {
+    color: var(--color-text-muted);
+    line-height: 1.9;
+    margin-bottom: var(--space-lg);
+}
+
+.equipment {
+    padding: var(--section-padding) 0;
+    background: var(--color-bg-alt);
+}
+
+.equipmentTitle {
+    font-size: var(--text-3xl);
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+}
+
+.equipmentGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.equipmentCard {
+    background: var(--color-bg);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.equipmentCard h4 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-sm);
+}
+
+.equipmentCard p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 968px) {
+
+    .heroGrid,
+    .statsGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .heroGrid,
+    .statsGrid,
+    .equipmentGrid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,100 @@
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    inset: 0;
+}
+
+.bgImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0.3) 50%,
+            rgba(0, 0, 0, 0.1) 100%);
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    color: var(--color-text-light);
+}
+
+.eyebrow {
+    font-family: var(--font-accent);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-accent-warm);
+    margin-bottom: var(--space-lg);
+}
+
+.title {
+    font-size: var(--text-7xl);
+    font-weight: 500;
+    line-height: 1.05;
+    margin-bottom: var(--space-xl);
+}
+
+.subtitle {
+    font-size: var(--text-lg);
+    line-height: 1.7;
+    opacity: 0.85;
+    max-width: 500px;
+    margin-bottom: var(--space-2xl);
+}
+
+.ctas {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.scrollIndicator {
+    position: absolute;
+    bottom: var(--space-2xl);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-text-light);
+    opacity: 0.6;
+}
+
+.scrollText {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: var(--space-sm);
+}
+
+.scrollLine {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, currentColor, transparent);
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: var(--text-5xl);
+    }
+
+    .ctas {
+        flex-direction: column;
+    }
+}

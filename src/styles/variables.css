@@ -1,0 +1,81 @@
+:root {
+    --color-bg: #FFFFFF;
+    --color-bg-alt: #FAFAFA;
+    --color-bg-dark: #1A1A1A;
+    --color-text: #1A1A1A;
+    --color-text-muted: #6B6B6B;
+    --color-text-light: #FFFFFF;
+    --color-accent: #2C2C2C;
+    --color-accent-warm: #C9A87C;
+    --color-border: #E5E5E5;
+    --color-overlay: rgba(0, 0, 0, 0.95);
+    --color-error: #C44536;
+    --color-success: #2D7A4F;
+
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-accent: 'Montserrat', sans-serif;
+
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2rem;
+    --text-4xl: 2.5rem;
+    --text-5xl: 3.5rem;
+    --text-6xl: 4.5rem;
+    --text-7xl: 6rem;
+
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    --space-4xl: 6rem;
+    --space-5xl: 8rem;
+
+    --container: 1400px;
+    --section-padding: 120px;
+    --header-height: 80px;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+    --z-base: 1;
+    --z-header: 100;
+    --z-menu: 150;
+    --z-modal: 200;
+    --z-lightbox: 250;
+    --z-cursor: 300;
+    --z-preloader: 400;
+
+    --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+    --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --transition-fast: 0.2s var(--ease-out);
+    --transition-base: 0.4s var(--ease-out);
+    --transition-slow: 0.8s var(--ease-out);
+    --transition-page: 0.6s var(--ease-in-out);
+}
+
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 60px;
+        --text-5xl: 2.5rem;
+        --text-6xl: 3rem;
+        --text-7xl: 4rem;
+    }
+}

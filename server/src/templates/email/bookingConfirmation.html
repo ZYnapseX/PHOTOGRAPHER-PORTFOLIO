@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+        }
+
+        .header {
+            background: #1a1a1a;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .footer {
+            background: #f9f9f9;
+            padding: 20px 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+        h2 {
+            color: #1a1a1a;
+            font-weight: 400;
+        }
+
+        .details {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 3px solid #1a1a1a;
+        }
+
+        .details p {
+            margin: 8px 0;
+        }
+
+        .details strong {
+            color: #1a1a1a;
+        }
+
+        .booking-number {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            background: #f0f0f0;
+            padding: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ALEXANDRA VOLKOVA</h1>
+        </div>
+        <div class="content">
+            <h2>Thank You for Your Booking Request</h2>
+
+            <p>Dear {{clientName}},</p>
+
+            <p>Thank you for choosing Alexandra Volkova Photography! We have received your booking request and are
+                excited to work with you.</p>
+
+            <div class="booking-number">
+                Booking Reference: {{bookingNumber}}
+            </div>
+
+            <div class="details">
+                <p><strong>Service:</strong> {{serviceName}}</p>
+                <p><strong>Date:</strong> {{shootDate}}</p>
+                <p><strong>Time:</strong> {{shootTime}}</p>
+                <p><strong>Location:</strong> {{location}}</p>
+            </div>
+
+            <p>We will review your request and get back to you within 24 hours to confirm the details and discuss any
+                specific requirements you may have.</p>
+
+            <p>If you have any questions in the meantime, please don't hesitate to contact us:</p>
+            <p>
+                Email: {{contactEmail}}<br>
+                Phone: {{contactPhone}}
+            </p>
+
+            <p>We look forward to creating beautiful memories with you!</p>
+
+            <p>Warm regards,<br>Alexandra Volkova</p>
+        </div>
+        <div class="footer">
+            <p>Alexandra Volkova Photography</p>
+            <p>London, United Kingdom</p>
+            <p>+44 20 7946 0958 | hello@alexandravolkova.co.uk</p>
+        </div>
+    </div>
+</body>
+
+</html>

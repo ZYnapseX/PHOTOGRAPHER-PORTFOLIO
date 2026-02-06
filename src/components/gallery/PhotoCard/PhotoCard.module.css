@@ -1,0 +1,93 @@
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+}
+
+.imageWrap {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-out);
+}
+
+.card:hover .image {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0) 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+.content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-xl);
+    color: var(--color-text-light);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.4s var(--ease-out), opacity 0.4s ease;
+}
+
+.card:hover .content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-xs);
+}
+
+.category {
+    font-size: var(--text-sm);
+    opacity: 0.8;
+    text-transform: capitalize;
+}
+
+.viewIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.4s var(--ease-out-back);
+}
+
+.card:hover .viewIcon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.viewIcon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-text);
+}

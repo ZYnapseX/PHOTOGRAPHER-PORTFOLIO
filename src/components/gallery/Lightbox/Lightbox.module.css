@@ -1,0 +1,125 @@
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: var(--color-overlay);
+    z-index: var(--z-lightbox);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2xl);
+}
+
+.image {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.close {
+    position: absolute;
+    top: var(--space-xl);
+    right: var(--space-xl);
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav svg {
+    width: 24px;
+    height: 24px;
+}
+
+.prev {
+    left: var(--space-xl);
+}
+
+.next {
+    right: var(--space-xl);
+}
+
+.counter {
+    position: absolute;
+    bottom: var(--space-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-text-light);
+    font-family: var(--font-accent);
+    font-size: var(--text-sm);
+    letter-spacing: 0.1em;
+}
+
+.caption {
+    position: absolute;
+    bottom: var(--space-xl);
+    left: var(--space-xl);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--text-sm);
+    max-width: 300px;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        width: 44px;
+        height: 44px;
+    }
+
+    .prev {
+        left: var(--space-sm);
+    }
+
+    .next {
+        right: var(--space-sm);
+    }
+
+    .close {
+        top: var(--space-md);
+        right: var(--space-md);
+    }
+}

@@ -1,0 +1,143 @@
+.page {
+    padding-top: var(--header-height);
+}
+
+.hero {
+    padding: var(--space-5xl) 0;
+    background: var(--color-bg-alt);
+    text-align: center;
+}
+
+.title {
+    font-size: var(--text-5xl);
+    margin-bottom: var(--space-md);
+}
+
+.subtitle {
+    color: var(--color-text-muted);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.content {
+    padding: var(--section-padding) 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--space-4xl);
+}
+
+.info {}
+
+.infoSection {
+    margin-bottom: var(--space-2xl);
+}
+
+.infoSection h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-md);
+}
+
+.infoItem {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.infoItem svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    opacity: 0.6;
+    margin-top: 2px;
+}
+
+.infoItem span {
+    line-height: 1.6;
+}
+
+.social {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.social a {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.social a:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-text-light);
+}
+
+.form {
+    background: var(--color-bg-alt);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-lg);
+}
+
+.form h3 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-xl);
+}
+
+.fieldGroup {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.fieldRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+}
+
+.field label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    margin-bottom: var(--space-sm);
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg);
+    transition: border-color 0.3s ease;
+}
+
+.field input:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.submit {
+    margin-top: var(--space-xl);
+}
+
+@media (max-width: 968px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .fieldRow {
+        grid-template-columns: 1fr;
+    }
+}

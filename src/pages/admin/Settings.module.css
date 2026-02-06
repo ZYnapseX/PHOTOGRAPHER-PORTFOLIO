@@ -1,0 +1,105 @@
+.sections {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.section {
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.sectionHeader {
+    padding: var(--space-lg) var(--space-xl);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.sectionTitle {
+    font-size: var(--text-lg);
+    font-weight: 500;
+}
+
+.sectionBody {
+    padding: var(--space-xl);
+}
+
+.form {
+    display: grid;
+    gap: var(--space-lg);
+    max-width: 500px;
+}
+
+.field label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    margin-bottom: var(--space-sm);
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.2s ease;
+}
+
+.field input:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.toggle:last-child {
+    border-bottom: none;
+}
+
+.toggleLabel {
+    font-weight: 500;
+}
+
+.toggleDesc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+}
+
+.switch {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.switchActive {
+    background: var(--color-accent);
+}
+
+.switch::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.switchActive::after {
+    transform: translateX(24px);
+}

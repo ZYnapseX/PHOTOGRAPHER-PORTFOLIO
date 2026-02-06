@@ -1,0 +1,30 @@
+.page {
+  padding-top: var(--header-height);
+}
+
+.hero {
+  padding: var(--space-5xl) 0;
+  background: var(--color-bg-alt);
+  text-align: center;
+}
+
+.title {
+  font-size: var(--text-5xl);
+  margin-bottom: var(--space-md);
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-2xl) 0;
+}
+
+.gallery {
+  padding: var(--space-2xl) 0 var(--section-padding);
+}

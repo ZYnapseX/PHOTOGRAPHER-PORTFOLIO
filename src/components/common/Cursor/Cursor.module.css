@@ -1,0 +1,88 @@
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: var(--z-cursor);
+    mix-blend-mode: difference;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.ring {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, border 0.3s ease;
+}
+
+.text {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #1a1a1a;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.cursor[data-type="link"] .ring {
+    width: 60px;
+    height: 60px;
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.cursor[data-type="view"] .dot {
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.cursor[data-type="view"] .ring {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.95);
+    border-color: transparent;
+}
+
+.cursor[data-type="view"] .text {
+    opacity: 1;
+}
+
+.cursor[data-type="drag"] .ring {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    border-color: transparent;
+}
+
+.cursor[data-type="drag"] .text {
+    opacity: 1;
+}
+
+.cursor[data-type="drag"] .dot {
+    transform: translate(-50%, -50%) scale(0);
+}
+
+@media (max-width: 1024px) {
+    .cursor {
+        display: none;
+    }
+}
+
+@media (hover: none) {
+    .cursor {
+        display: none;
+    }
+}

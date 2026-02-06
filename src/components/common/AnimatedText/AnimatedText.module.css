@@ -1,0 +1,39 @@
+.splitText {
+    display: inline-block;
+}
+
+.char {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.charInner {
+    display: inline-block;
+}
+
+.word {
+    display: inline-block;
+    overflow: hidden;
+    margin-right: 0.25em;
+}
+
+.wordInner {
+    display: inline-block;
+}
+
+.reveal {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.revealText {
+    display: inline-block;
+}
+
+.revealMask {
+    position: absolute;
+    inset: 0;
+    background: var(--color-accent);
+    transform-origin: left;
+}

@@ -1,0 +1,248 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String    @map("password_hash")
+  name          String
+  role          String    @default("ADMIN")
+  avatar        String?
+  isActive      Boolean   @default(true) @map("is_active")
+  lastLogin     DateTime? @map("last_login")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  refreshTokens RefreshToken[]
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("refresh_tokens")
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String?
+  coverImage  String?  @map("cover_image")
+  sortOrder   Int      @default(0) @map("sort_order")
+  isActive    Boolean  @default(true) @map("is_active")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  albums   Album[]
+  photos   Photo[]
+  services Service[]
+
+  @@map("categories")
+}
+
+model Album {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  description String?
+  location    String?
+  shootDate   DateTime? @map("shoot_date")
+  coverImage  String?   @map("cover_image")
+  categoryId  String    @map("category_id")
+  category    Category  @relation(fields: [categoryId], references: [id])
+  isPublished Boolean   @default(false) @map("is_published")
+  isFeatured  Boolean   @default(false) @map("is_featured")
+  sortOrder   Int       @default(0) @map("sort_order")
+  viewCount   Int       @default(0) @map("view_count")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  photos Photo[]
+
+  @@index([categoryId])
+  @@index([isPublished, isFeatured])
+  @@map("albums")
+}
+
+model Photo {
+  id            String  @id @default(cuid())
+  filename      String
+  originalName  String  @map("original_name")
+  mimeType      String  @map("mime_type")
+  size          Int
+  width         Int
+  height        Int
+  pathOriginal  String  @map("path_original")
+  pathLarge     String  @map("path_large")
+  pathMedium    String  @map("path_medium")
+  pathSmall     String  @map("path_small")
+  pathThumbnail String  @map("path_thumbnail")
+  blurHash      String? @map("blur_hash")
+  dominantColor String? @map("dominant_color")
+  title         String?
+  description   String?
+  altText       String? @map("alt_text")
+
+  albumId    String?   @map("album_id")
+  album      Album?    @relation(fields: [albumId], references: [id], onDelete: SetNull)
+  categoryId String?   @map("category_id")
+  category   Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  isFeatured  Boolean @default(false) @map("is_featured")
+  isPublished Boolean @default(true) @map("is_published")
+  sortOrder   Int     @default(0) @map("sort_order")
+
+  takenAt      DateTime? @map("taken_at")
+  cameraMake   String?   @map("camera_make")
+  cameraModel  String?   @map("camera_model")
+  lens         String?
+  focalLength  String?   @map("focal_length")
+  aperture     String?
+  shutterSpeed String?   @map("shutter_speed")
+  iso          Int?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([albumId])
+  @@index([categoryId])
+  @@index([isFeatured, isPublished])
+  @@map("photos")
+}
+
+model Service {
+  id               String   @id @default(cuid())
+  name             String
+  slug             String   @unique
+  description      String?
+  shortDescription String?  @map("short_description")
+  categoryId       String   @map("category_id")
+  category         Category @relation(fields: [categoryId], references: [id])
+  price            Float
+  priceFrom        Boolean  @default(false) @map("price_from")
+  duration         String?
+  features         String   @default("[]")
+  includes         String   @default("[]")
+  isPopular        Boolean  @default(false) @map("is_popular")
+  isActive         Boolean  @default(true) @map("is_active")
+  sortOrder        Int      @default(0) @map("sort_order")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  bookings Booking[]
+
+  @@index([categoryId])
+  @@map("services")
+}
+
+model Booking {
+  id            String   @id @default(cuid())
+  bookingNumber String   @unique @map("booking_number")
+  serviceId     String   @map("service_id")
+  service       Service  @relation(fields: [serviceId], references: [id])
+  clientName    String   @map("client_name")
+  clientEmail   String   @map("client_email")
+  clientPhone   String   @map("client_phone")
+  shootDate     DateTime @map("shoot_date")
+  shootTime     String?  @map("shoot_time")
+  location      String?
+  message       String?
+  adminNotes    String?  @map("admin_notes")
+  status        String   @default("NEW")
+  totalPrice    Float?   @map("total_price")
+  depositPaid   Boolean  @default(false) @map("deposit_paid")
+  depositAmount Float?   @map("deposit_amount")
+  reminderSent  Boolean  @default(false) @map("reminder_sent")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@index([shootDate])
+  @@index([clientEmail])
+  @@map("bookings")
+}
+
+model BlockedDate {
+  id        String   @id @default(cuid())
+  date      DateTime @unique
+  reason    String?
+  isFullDay Boolean  @default(true) @map("is_full_day")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("blocked_dates")
+}
+
+model Testimonial {
+  id          String    @id @default(cuid())
+  clientName  String    @map("client_name")
+  clientPhoto String?   @map("client_photo")
+  text        String
+  rating      Int       @default(5)
+  serviceType String?   @map("service_type")
+  projectDate DateTime? @map("project_date")
+  isPublished Boolean   @default(false) @map("is_published")
+  isFeatured  Boolean   @default(false) @map("is_featured")
+  sortOrder   Int       @default(0) @map("sort_order")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("testimonials")
+}
+
+model ContactMessage {
+  id         String    @id @default(cuid())
+  name       String
+  email      String
+  phone      String?
+  subject    String?
+  message    String
+  status     String    @default("UNREAD")
+  adminNotes String?   @map("admin_notes")
+  repliedAt  DateTime? @map("replied_at")
+  createdAt  DateTime  @default(now()) @map("created_at")
+
+  @@index([status])
+  @@map("contact_messages")
+}
+
+model Setting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  type      String   @default("string")
+  group     String   @default("general")
+  isPublic  Boolean  @default(false) @map("is_public")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([group])
+  @@index([isPublic])
+  @@map("settings")
+}
+
+model PageView {
+  id        String   @id @default(cuid())
+  path      String
+  referrer  String?
+  userAgent String?  @map("user_agent")
+  ip        String?
+  country   String?
+  city      String?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([path])
+  @@index([createdAt])
+  @@map("page_views")
+}
