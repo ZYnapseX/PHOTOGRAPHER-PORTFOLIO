@@ -2,8 +2,7 @@
 
 A modern, high-performance portfolio website designed for photographers. Built with a focus on aesthetics, smooth animations, and a powerful content management system.
 
-![Home Page](public/screenshots/home-preview.png)
-*(Place a screenshot here named home-preview.png)*
+![Home Page](public/screenshots.png)
 
 ## ✨ Features
 
