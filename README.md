@@ -1,71 +1,100 @@
-# Photographer Portfolio
+# Photographer Portfolio Platform
 
-Современный сайт-портфолио для фотографа с админ-панелью. Vite + React + TypeScript.
+A modern, high-performance portfolio website designed for photographers. Built with a focus on aesthetics, smooth animations, and a powerful content management system.
 
-## Запуск
+![Home Page](public/screenshots/home-preview.png)
+*(Place a screenshot here named home-preview.png)*
 
-```bash
-npm install
-npm run dev
-```
+## ✨ Features
 
-Сайт откроется на `http://localhost:5173`
+- **Immersive Gallery**: Masonry grid layout with lazy loading and custom lightbox.
+- **Smooth Animations**: Powered by Framer Motion and Lenis Scroll for a premium feel.
+- **Admin Dashboard**: Full control over photos, albums, categories, and services.
+- **Booking System**: Clients can book sessions directly through the site with date availability checks.
+- **Responsive**: Flawless experience on mobile, tablet, and desktop.
 
-## Демо-доступ к админ-панели
+## 🛠 Tech Stack
 
-- URL: `/admin`
-- Email: `admin@volkova-photo.ru`
-- Пароль: `demo123`
+**Frontend**
+- React 18 & Vite
+- Framer Motion (Animations)
+- CSS Modules (Styling)
+- React Router 6
 
-## Структура
+**Backend**
+- Node.js & Express
+- Prisma ORM (SQLite for dev / PostgreSQL ready)
+- Sharp (Image processing)
+- JWT Authentication
 
-```
-src/
-├── components/        # UI компоненты
-│   ├── admin/         # Компоненты админки
-│   ├── gallery/       # Галерея и сетка
-│   ├── layout/        # Header, Footer
-│   └── ui/            # Переиспользуемые UI элементы
-├── context/           # React Context (Auth)
-├── data/              # Моковые данные
-├── pages/             # Страницы
-│   ├── admin/         # Страницы админки
-│   └── *.tsx          # Публичные страницы
-├── styles/            # Глобальные стили
-└── types/             # TypeScript типы
-```
+## 🚀 Getting Started
 
-## Страницы
+### Prerequisites
+- Node.js (v18+)
+- npm or yarn
 
-### Публичные
-- `/` — Главная
-- `/portfolio` — Портфолио
-- `/album/:slug` — Альбом
-- `/about` — Обо мне
-- `/services` — Услуги и цены
-- `/booking` — Бронирование
-- `/contact` — Контакты
+### Installation
 
-### Админ-панель
-- `/admin` — Дашборд
-- `/admin/photos` — Управление фото
-- `/admin/albums` — Управление альбомами
-- `/admin/bookings` — Заявки
-- `/admin/settings` — Настройки
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/photographer-portfolio.git
+   cd photographer-portfolio
+   ```
 
-## Технологии
+2. **Install dependencies**
+   ```bash
+   # Install root dependencies (Frontend)
+   npm install
 
-- React 18
-- TypeScript
-- Vite
-- React Router DOM 6
-- Framer Motion
-- CSS Custom Properties
+   # Install server dependencies
+   cd server
+   npm install
+   ```
 
-## Особенности
+3. **Environment Setup**
+   - Create `.env` in the `server` folder (copy from `.env.example`).
+   - Run database migrations:
+     ```bash
+     cd server
+     npx prisma migrate dev --name init
+     npm run seed  # Optional: Seeds default admin user
+     ```
 
-- Адаптивный дизайн
-- Lightbox с жестами
-- Masonry-сетка с lazy loading
-- Многошаговая форма бронирования
-- Полноценная админ-панель
+4. **Run Development Servers**
+   Open two terminals:
+
+   **Terminal 1 (Backend):**
+   ```bash
+   cd server
+   npm run dev
+   ```
+
+   **Terminal 2 (Frontend):**
+   ```bash
+   npm run dev
+   ```
+
+   The site will open at `http://localhost:5173`.
+
+## 🔐 Admin Access
+
+To access the CMS, navigate to `/admin`.
+
+- **Default Email:** `admin@volkova-photo.ru`
+- **Default Password:** `demo123`
+
+*(Change these credentials immediately after deployment via the Settings page)*
+
+## 📸 Screenshots
+
+| Dashboard | Photo Management |
+|-----------|------------------|
+| ![Dashboard](public/screenshots/dashboard.png) | ![Photos](public/screenshots/photos.png) |
+
+| Booking Flow | Mobile View |
+|--------------|-------------|
+| ![Booking](public/screenshots/booking.png) | ![Mobile](public/screenshots/mobile.png) |
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
